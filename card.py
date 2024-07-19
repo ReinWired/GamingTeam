@@ -1,12 +1,7 @@
 #%%
-<<<<<<< HEAD
-# #pv : max 100 (spell max : 30)
-#pa : points d'action - max 10 
-=======
 
 #pv : max 100 (spell max : 30)
 #pa : max 10 
->>>>>>> a80a76b43c03731d37d7c714d9a55c8f77c063c8
 
 class Card:
 
@@ -21,18 +16,18 @@ venom = Card(2, 10, [(4, 0), (4, -1), (4, 1), (5, 0), (3, 0), (2, 0), (6, 0)])
 
 swords = Card(3, 15, [(2, 0), (2, -1), (2, 1), (3, 0), (3, -1), (3, 1), (4, 0)])
 
-<<<<<<< HEAD
 
 #%%
 fireball = Card(5, 10, [(4,0),(4,-1),(4,1),(3,0),(5,0)]) # low impact, Impact --> ball
 
 blizzard = Card(8, 20, [(1,0),(2,0),(3,0),(4,0),(5,0)]) # medium impact, line impact
 
-tornado = Card(15,30,[(5,0),(5,-1),(5,1),(4,0),(6,0),]) # high impact, impact ball, diagonal line
+tornado = Card(10,30,[(5,2),(5,1),(5,3),(4,2),(6,2),(6,3),(6,1),(4,3),(4,1),(3,4),(3,0),(7,4),(7,0)]) # high impact, impact ball, diagonal line
 
-rockfall = 
+rockfall = Card(9,15,[(2,0),(2,1),(2,2),(2,3),(2,4),(2,-1),(2,-2),(2,-3)])
 
-=======
+ice_throw = Card(2,2,[(6,0)])
+
 lane_fire = Card(4, 8, [(1, 0), (2, 0), (3, 0), (4, 0), (5, 0), (6, 0), (7, 0)])
 
 tsunami = Card(5, 12, [(1, -2), (1, -1), (1, 0), (1, 1), (1, 2), (2, -2), (2, -1), (2, 0), (2, 1), (2, 2)])
@@ -59,7 +54,6 @@ def place(pos, spell):
 
 
 
-place((2,3), sun_burn.position)
+place((0,0), ice_throw.position)
 
 # %%
->>>>>>> a80a76b43c03731d37d7c714d9a55c8f77c063c8
