@@ -5,6 +5,8 @@ spells = {
     'attaque_tonnerre' : {'PA' : 1, 'Damage': 3}
 }
 
+#pv : max 100 (spell max : 30)
+#pa : max 10 
 
 class Card:
 
@@ -15,3 +17,7 @@ class Card:
 
 
 # attaque_tonette : Card(2, 3 ,4)
+#%%
+
+venom = Card(2, )
+
