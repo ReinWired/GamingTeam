@@ -1,12 +1,6 @@
 #%%
-
-
-spells = {
-    'attaque_tonnerre' : {'PA' : 1, 'Damage': 3}
-}
-
-#pv : max 100 (spell max : 30)
-#pa : max 10 
+# #pv : max 100 (spell max : 30)
+#pa : points d'action - max 10 
 
 class Card:
 
@@ -20,4 +14,14 @@ class Card:
 #%%
 
 venom = Card(2, )
+
+
+#%%
+fireball = Card(5, 10, [(4,0),(4,-1),(4,1),(3,0),(5,0)]) # low impact, Impact --> ball
+
+blizzard = Card(8, 20, [(1,0),(2,0),(3,0),(4,0),(5,0)]) # medium impact, line impact
+
+tornado = Card(15,30,[(5,0),(5,-1),(5,1),(4,0),(6,0),]) # high impact, impact ball, diagonal line
+
+rockfall = 
 
