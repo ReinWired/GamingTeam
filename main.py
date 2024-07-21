@@ -1,4 +1,5 @@
 from player import *
+from spritesheet import *
 import time
 
 CLOCK = pygame.time.Clock()
@@ -46,6 +47,8 @@ def events(players):
                     player.mapping.left(player)
                 if event.key == player.mapping.kRIGHT:
                     player.mapping.right(player)
+                if event.key == player.mapping.kATK:
+                    player.mapping.attack(player)
 
 def font_smooth(screen, players, smooth, surface):
         fontx = players[0].currentX + 25
@@ -79,21 +82,15 @@ def mymain():
     font = pygame.font.Font(None, 48)
     app = App(1000, 1000)
     pygame.display.set_caption("One Step From Hell")
-    ronflex_png = pygame.image.load("./image/snorlax.png")
-    goinfrex_png = pygame.image.load("./image/goinfrex.png")
-    sala_png = pygame.image.load("./image/salameche.png")
 
-    ronflex_png = pygame.transform.scale(ronflex_png, (100, 100))
-    goinfrex_png = pygame.transform.scale(goinfrex_png, (100, 100))
-    sala_png = pygame.transform.scale(sala_png, (100, 100))
 
-    key_p1 = [K_UP, K_DOWN, K_LEFT, K_RIGHT]
-    key_p2 = [K_i, K_k, K_j, K_l]
-
-    players = [Player([int(0), int(500)], RED, key_p1, check_p1, [400, 0], ronflex_png),
-               Player([int(900), int(500)], GREEN, key_p2, check_p2, [500, 900], goinfrex_png)]
-
+    key_p1 = [K_UP, K_DOWN, K_LEFT, K_RIGHT, K_BACKSPACE]
+    key_p2 = [K_i, K_k, K_j, K_l, K_SPACE]
     str_p = ["P1", "P2"]
+
+    players = [Player([int(0), int(500)], RED, key_p1, check_p1, [400, 0], sala_png, str_p[0], 0),
+               Player([int(900), int(500)], GREEN, key_p2, check_p2, [500, 900], goinfrex_png, str_p[1], 1)]
+
     surface = [pygame.font.Font.render(font, str_p[0], True, BLACK),
                pygame.font.Font.render(font, str_p[1], True, BLACK)]
 
@@ -103,7 +100,6 @@ def mymain():
         pygame.event.get()
         app.screen.fill((255, 255, 255))
 
-        # pygame.draw.rect(app.screen, RED, rect)
         app.grid.draw(app.screen)
         players[0].draw(app.grid)
         players[1].draw(app.grid)
@@ -112,8 +108,6 @@ def mymain():
         font_smooth(app.screen, players, smooth, surface)
 
         pygame.display.flip()
-        CLOCK.tick()
-        print(CLOCK.get_fps())
 
     pygame.quit()
 
