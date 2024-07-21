@@ -1,6 +1,8 @@
 import pygame
 from utils import *
 
+# checks to prevent players to go out of bounds
+# p1 = player1
 def check_p1(x, nb):
     if x > nb[0]:
         return nb[0]
@@ -97,9 +99,9 @@ class Mapping:
         player.x = player.x + 100
         player.x = player.check(player.x, player.limit)
 
-# use attacks as entity that will hold their own start/end distance etc so its easier
+#TODO: use attacks as entity that will hold their own start/end distance etc so its easier
     def attack(self, player):
-        # if not player.attacking == True:
+        if not player.attacking == True:
             if player.id == 0:
                 x = player.x + 100
             else:
